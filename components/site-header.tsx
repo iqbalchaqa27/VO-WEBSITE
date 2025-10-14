@@ -12,7 +12,7 @@ export function SiteHeader() {
     <header className="border-b bg-card">
       <div className="container flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2" aria-label="Halaman Utama IKAQ JABODETABEK">
-          <img src="/ikaq-logo.jpg" alt="Logo IKAQ" className="h-7 w-7" />
+          <img src="/images/ikaq-logo.png" alt="Logo IKAQ JABODETABEK" className="h-7 w-7" />
           <span className="font-semibold tracking-wide">IKAQ JABODETABEK</span>
         </Link>
 

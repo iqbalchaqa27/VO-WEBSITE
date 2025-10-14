@@ -53,8 +53,8 @@ export type Member = {
 }
 
 export const structure: Member[] = [
-  { name: "Ahmad Fauzi", role: "Ketua", photo: "/ketua.jpg" },
-  { name: "Nur Aisyah", role: "Sekretaris", photo: "/sekretaris.jpg" },
+  { name: "KH. Saifullah Amin", role: "Ketua IKAQ", photo: "/images/ketua-ikaq.png" },
+  { name: "M. Noor Rokhim", role: "Sekretaris", photo: "/images/sekretaris-ikaq.png" },
   { name: "Budi Santoso", role: "Bendahara", photo: "/bendahara.jpg" },
   { name: "Siti Rahma", role: "Bidang Sosial", photo: "/bidang-sosial.jpg" },
   { name: "Rizky Hidayat", role: "Bidang Keagamaan", photo: "/bidang-keagamaan.jpg" },

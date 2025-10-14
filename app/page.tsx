@@ -39,8 +39,8 @@ export default function HomePage() {
           <FadeIn className="order-1 md:order-2">
             <div className="relative aspect-[4/3] subtle-card overflow-hidden">
               <img
-                src="/foto-kegiatan-ikaq.jpg"
-                alt="Foto kegiatan organisasi IKAQ JABODETABEK"
+                src="/images/kegiatan-ikaq.png"
+                alt="Kolase foto kegiatan IKAQ JABODETABEK"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -59,6 +59,27 @@ export default function HomePage() {
           </FadeIn>
           <FadeIn>
             <PrayerTimesWidget />
+          </FadeIn>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container grid md:grid-cols-3 gap-6 items-center">
+          <FadeIn className="md:col-span-1">
+            <div className="relative subtle-card overflow-hidden">
+              <img
+                src="/images/ketua-ikaq.png"
+                alt="Foto Ketua IKAQ JABODETABEK"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </FadeIn>
+          <FadeIn className="md:col-span-2">
+            <h2 className="section-title">Ketua IKAQ JABODETABEK</h2>
+            <p className="mt-3 leading-relaxed text-pretty">
+              Profil singkat dan peran Ketua IKAQ JABODETABEK sebagai penggerak kolaborasi alumni, teladan akhlak, serta
+              penguat silaturahmi dan pengabdian sosial. Konten detail dapat diperbarui kemudian sesuai kebutuhan.
+            </p>
           </FadeIn>
         </div>
       </section>
