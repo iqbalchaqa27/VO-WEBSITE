@@ -11,8 +11,12 @@ export default function StrukturPage() {
             <FadeIn key={m.name}>
               <div className="subtle-card p-4 text-center">
                 <img
-                  src={m.photo || "/placeholder.svg"}
-                  alt={`Foto ${m.name}`}
+                  src={
+                    m.role?.toLowerCase() === "bendahara" || m.name === "Maulida Dzul Fikria"
+                      ? "/images/bendahara-ikaq.png"
+                      : m.photo || "/placeholder.svg"
+                  }
+                  alt={`Foto ${m.name}${m.role ? " - " + m.role : ""}`}
                   className="mx-auto h-28 w-28 rounded-full object-cover"
                 />
                 <div className="mt-3 font-medium">{m.name}</div>

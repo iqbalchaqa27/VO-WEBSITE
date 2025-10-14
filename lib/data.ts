@@ -55,7 +55,7 @@ export type Member = {
 export const structure: Member[] = [
   { name: "KH. Saifullah Amin", role: "Ketua IKAQ", photo: "/images/ketua-ikaq.png" },
   { name: "M. Noor Rokhim", role: "Sekretaris", photo: "/images/sekretaris-ikaq.png" },
-  { name: "Budi Santoso", role: "Bendahara", photo: "/bendahara.jpg" },
+  { name: "Maulida Dzul Fikria", role: "Bendahara", photo: "/images/bendahara-ikaq.png" },
   { name: "Siti Rahma", role: "Bidang Sosial", photo: "/bidang-sosial.jpg" },
   { name: "Rizky Hidayat", role: "Bidang Keagamaan", photo: "/bidang-keagamaan.jpg" },
   { name: "Dewi Lestari", role: "Bidang Pendidikan", photo: "/bidang-pendidikan.jpg" },
