@@ -7,7 +7,7 @@ import { eq, desc } from "drizzle-orm"
 export default async function BeritaPage() {
   let newsList: any[] = []
   try {
-    if (process.env.DATABASE_URL) {
+    if (db && process.env.DATABASE_URL) {
       newsList = await db
         .select()
         .from(news)

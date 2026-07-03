@@ -10,7 +10,7 @@ export default async function HomePage() {
   // Fetch active sliders from database
   let sliders: any[] = []
   try {
-    if (process.env.DATABASE_URL) {
+    if (db && process.env.DATABASE_URL) {
       sliders = await db
         .select()
         .from(slidersTable)

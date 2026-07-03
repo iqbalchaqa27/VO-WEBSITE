@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export async function generateStaticParams() {
   try {
-    if (!process.env.DATABASE_URL) return []
+    if (!db || !process.env.DATABASE_URL) return []
     const newsList = await db
       .select({ slug: news.slug })
       .from(news)
@@ -25,7 +25,7 @@ export default async function BeritaDetailPage({
 }) {
   let newsItem = null
   try {
-    if (process.env.DATABASE_URL) {
+    if (db && process.env.DATABASE_URL) {
       const items = await db
         .select()
         .from(news)
