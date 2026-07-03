@@ -3,6 +3,7 @@ import { FadeIn } from "@/components/fade-in"
 import { PrayerTimesWidget } from "@/components/prayer-times-widget"
 
 export default function HomePage() {
+
   return (
     <>
       <section className="section bg-secondary">
