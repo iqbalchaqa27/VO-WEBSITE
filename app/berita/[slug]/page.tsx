@@ -5,13 +5,17 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 
 export async function generateStaticParams() {
-  const newsList = await db
-    .select({ slug: news.slug })
-    .from(news)
-    .where(eq(news.published, true))
-    .catch(() => [])
-
-  return newsList.map((item) => ({ slug: item.slug }))
+  try {
+    if (!process.env.DATABASE_URL) return []
+    const newsList = await db
+      .select({ slug: news.slug })
+      .from(news)
+      .where(eq(news.published, true))
+    return newsList.map((item) => ({ slug: item.slug }))
+  } catch (error) {
+    console.error('[v0] Failed to generate static params:', error)
+    return []
+  }
 }
 
 export default async function BeritaDetailPage({
@@ -19,12 +23,18 @@ export default async function BeritaDetailPage({
 }: {
   params: { slug: string }
 }) {
-  const newsItem = await db
-    .select()
-    .from(news)
-    .where(eq(news.slug, params.slug))
-    .then((items) => items[0])
-    .catch(() => null)
+  let newsItem = null
+  try {
+    if (process.env.DATABASE_URL) {
+      const items = await db
+        .select()
+        .from(news)
+        .where(eq(news.slug, params.slug))
+      newsItem = items[0] || null
+    }
+  } catch (error) {
+    console.error('[v0] Failed to fetch news item:', error)
+  }
 
   if (!newsItem || !newsItem.published) {
     return notFound()

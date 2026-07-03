@@ -5,12 +5,18 @@ import { news } from "@/lib/db/schema"
 import { eq, desc } from "drizzle-orm"
 
 export default async function BeritaPage() {
-  const newsList = await db
-    .select()
-    .from(news)
-    .where(eq(news.published, true))
-    .orderBy(desc(news.createdAt))
-    .catch(() => [])
+  let newsList: any[] = []
+  try {
+    if (process.env.DATABASE_URL) {
+      newsList = await db
+        .select()
+        .from(news)
+        .where(eq(news.published, true))
+        .orderBy(desc(news.createdAt))
+    }
+  } catch (error) {
+    console.error('[v0] Failed to fetch news:', error)
+  }
 
   return (
     <section className="section">

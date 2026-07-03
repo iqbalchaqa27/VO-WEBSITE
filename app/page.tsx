@@ -8,12 +8,19 @@ import { eq } from "drizzle-orm"
 
 export default async function HomePage() {
   // Fetch active sliders from database
-  const sliders = await db
-    .select()
-    .from(slidersTable)
-    .where(eq(slidersTable.active, true))
-    .orderBy(slidersTable.order)
-    .catch(() => []) // Fallback to empty array if query fails
+  let sliders: any[] = []
+  try {
+    if (process.env.DATABASE_URL) {
+      sliders = await db
+        .select()
+        .from(slidersTable)
+        .where(eq(slidersTable.active, true))
+        .orderBy(slidersTable.order)
+    }
+  } catch (error) {
+    console.error('[v0] Failed to fetch sliders:', error)
+    // Silently fail and show empty carousel
+  }
 
   return (
     <>
