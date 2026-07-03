@@ -1,36 +1,11 @@
 import Link from "next/link"
 import { FadeIn } from "@/components/fade-in"
 import { PrayerTimesWidget } from "@/components/prayer-times-widget"
-import { SliderCarousel } from "@/components/slider-carousel"
-import { db } from "@/lib/db"
-import { sliders as slidersTable } from "@/lib/db/schema"
-import { eq } from "drizzle-orm"
 
-export default async function HomePage() {
-  // Fetch active sliders from database
-  let sliders: any[] = []
-  try {
-    if (db && process.env.DATABASE_URL) {
-      sliders = await db
-        .select()
-        .from(slidersTable)
-        .where(eq(slidersTable.active, true))
-        .orderBy(slidersTable.order)
-    }
-  } catch (error) {
-    console.error('[v0] Failed to fetch sliders:', error)
-    // Silently fail and show empty carousel
-  }
+export default function HomePage() {
 
   return (
     <>
-      {/* Slider Carousel */}
-      <section className="section">
-        <div className="container">
-          <SliderCarousel sliders={sliders} />
-        </div>
-      </section>
-
       <section className="section bg-secondary">
         <div className="container grid md:grid-cols-2 gap-8 items-center">
           <FadeIn className="order-2 md:order-1">

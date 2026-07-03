@@ -1,22 +1,8 @@
 import Link from "next/link"
 import { FadeIn } from "@/components/fade-in"
-import { db } from "@/lib/db"
-import { news } from "@/lib/db/schema"
-import { eq, desc } from "drizzle-orm"
 
-export default async function BeritaPage() {
-  let newsList: any[] = []
-  try {
-    if (db && process.env.DATABASE_URL) {
-      newsList = await db
-        .select()
-        .from(news)
-        .where(eq(news.published, true))
-        .orderBy(desc(news.createdAt))
-    }
-  } catch (error) {
-    console.error('[v0] Failed to fetch news:', error)
-  }
+export default function BeritaPage() {
+  const newsList: any[] = []
 
   return (
     <section className="section">
